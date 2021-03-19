@@ -34,8 +34,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
-
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -45,6 +51,11 @@
                     <descriptors>
                         <descriptor>src/main/assembly/assembly.xml</descriptor>
                     </descriptors>
+                    <archive>
+                        <manifest>
+                            <mainClass>cn.hello.b.BApplication</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
                 <executions>
                     <execution>
@@ -59,4 +70,19 @@
         </plugins>
     </build>
 
+    <distributionManagement>
+
+        <repository>
+            <id>releases</id>
+            <name>releases</name>
+            <url>http://localhost:9000/repository/maven-releases/</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>snapshots</name>
+            <url>http://localhost:9000/repository/maven-snapshots/</url>
+        </snapshotRepository>
+
+    </distributionManagement>
 </project>

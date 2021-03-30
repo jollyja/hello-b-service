@@ -29,6 +29,7 @@
         </dependency>
     </dependencies>
 
+
     <build>
         <plugins>
             <plugin>
@@ -49,11 +50,11 @@
                 <version>3.0.0</version>
                 <configuration>
                     <descriptors>
-                        <descriptor>src/main/assembly/assembly.xml</descriptor>
+                        <descriptor>${project.basedir}/assembly.xml</descriptor>
                     </descriptors>
                     <archive>
                         <manifest>
-                            <mainClass>cn.hello.b.BApplication</mainClass>
+                            <mainClass>cn.hello.a.AApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -67,6 +68,27 @@
                 </executions>
             </plugin>
 
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.13</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <contextDirectory>${project.basedir}</contextDirectory>
+                    <repository>jollyjas-macbook-pro.local:9200/library/${project.artifactId}</repository>
+                    <tag>latest</tag>
+                    <useMavenSettingsForAuth>true</useMavenSettingsForAuth>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
@@ -75,13 +97,13 @@
         <repository>
             <id>releases</id>
             <name>releases</name>
-            <url>http://localhost:9000/repository/maven-releases/</url>
+            <url>http://jollyjas-macbook-pro.local:9000/repository/maven-releases/</url>
         </repository>
 
         <snapshotRepository>
             <id>snapshots</id>
             <name>snapshots</name>
-            <url>http://localhost:9000/repository/maven-snapshots/</url>
+            <url>http://jollyjas-macbook-pro.local:9000/repository/maven-snapshots/</url>
         </snapshotRepository>
 
     </distributionManagement>

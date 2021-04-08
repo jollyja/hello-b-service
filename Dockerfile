@@ -12,7 +12,7 @@ VOLUME /tmp
 # docker启动的时候由外部映射jdk
 VOLUME /JDK
 
-EXPOSE 8081
+EXPOSE 8082
 
 # 设置环境变量
 ENV JAVA_HOME /JDK

@@ -5,16 +5,18 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.3</version>
+        <version>2.3.9.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.hello</groupId>
-    <artifactId>b</artifactId>
+    <artifactId>a</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>b</name>
+    <name>hello-b-service</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>15</java.version>
+        <nacos-config-spring-boot.version>0.2.7</nacos-config-spring-boot.version>
+        <nacos-discovery-spring-boot.version>0.2.7</nacos-discovery-spring-boot.version>
     </properties>
     <dependencies>
         <dependency>
@@ -27,8 +29,31 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-starter</artifactId>
+            <version>${nacos-config-spring-boot.version}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-config-spring-boot-actuator</artifactId>
+            <version>${nacos-config-spring-boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-discovery-spring-boot-starter</artifactId>
+            <version>${nacos-discovery-spring-boot.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>nacos-discovery-spring-boot-actuator</artifactId>
+            <version>${nacos-discovery-spring-boot.version}</version>
+        </dependency>
+
+    </dependencies>
 
     <build>
         <plugins>
@@ -54,7 +79,7 @@
                     </descriptors>
                     <archive>
                         <manifest>
-                            <mainClass>cn.hello.a.AApplication</mainClass>
+                            <mainClass>cn.hello.b.BApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

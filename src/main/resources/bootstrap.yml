@@ -1,0 +1,27 @@
+spring:
+    application:
+        name: hello-b
+    cloud:
+        nacos:
+            discovery:
+                server-addr: jollyjas-macbook-pro.local:9348
+            config:
+                server-addr: jollyjas-macbook-pro.local:9348
+                file-extension: yaml
+                refresh-enabled: true
+                group: DEFAULT_GROUP
+                max-retry: 3
+
+
+
+#nacos:
+#    discovery:
+#        register:
+#            ip: jollyjas-macbook-pro.local # 服务对外暴露 ip
+#            port: 8081 # 服务对外暴露 port
+#            # weight: 0.6D # 服务权重
+#            healthy: false # 服务健康信息
+#            enabled: true # 服务是否可用
+#            ephemeral: true # 是否为临时实例
+#            clusterName: helloCluster # 服务集群名称1
+#            groupName: helloGroup # 服务所属分组
